@@ -6,9 +6,8 @@ class MrpProduction(models.Model):
     _inherit = 'mrp.production'
     
     def button_mark_done(self):
+        result = super(MrpProduction, self).button_mark_done()
         if self.state == 'done':
-            result = super(MrpProduction, self).button_mark_done()
-
             for line in self.move_raw_ids:
                 if line.product_id.type == 'consu':
                     move_lines = [
@@ -31,6 +30,6 @@ class MrpProduction(models.Model):
                         }
                     asiento = self.env['account.move'].create(values)
                     asiento.action_post()
-                
-            return result
+            
+        return result
 
