@@ -5,7 +5,6 @@ from odoo import models, api, fields
 class MrpProduction(models.Model):
     _inherit = 'mrp.production'
 
-    @api.model
     def button_mark_done(self):
         result = super(MrpProduction, self).button_mark_done()
 
