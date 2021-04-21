@@ -4,11 +4,11 @@ from odoo import models, api, fields
 
 class MrpProduction(models.Model):
     _inherit = 'mrp.production'
-
-
-    @api.onchange('state')
-    def button_mark_done_change(self):
+    
+    def button_mark_done(self):
         if self.state == 'done':
+            result = super(MrpProduction, self).button_mark_done()
+
             for line in self.move_raw_ids:
                 if line.product_id.type == 'consu':
                     move_lines = [
@@ -31,6 +31,6 @@ class MrpProduction(models.Model):
                         }
                     asiento = self.env['account.move'].create(values)
                     asiento.action_post()
-            
-        
+                
+            return result
 
