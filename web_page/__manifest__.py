@@ -22,7 +22,7 @@
     'depends': ['base','sale_management'],
 
     # always loaded
-    
-    # only loaded in demonstration mode
+    'data': [
+        'views/sale_order_report.xml',
     
 }
