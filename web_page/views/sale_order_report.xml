@@ -1,30 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
   <template id="sale_order_report_inherit_web_page" inherit_id="sale.report_saleorder_document">
-    <t t-foreach="docs" t-as="o">
-      <xpath expr="/t/t/div/h2" position="after">
-        <div class="row">
-          <div class="col">
-            <span t-field="o.code"/>
+    <xpath expr="/t/t/div/h2" position="after">
+          <div class="row">
+            <div class="col">
+              <span t-field="doc.code"/>
+            </div>
           </div>
-        </div>
-      </xpath>
-      <xpath expr="/t[1]/t[1]/div[1]/div[2]/div[1]" position="replace"/>
-      <xpath expr="/t/t/div/div[2]" position="after">
-        <div class="row">
-          <div class="col-3">
-            <span>
-              <strong>Código:</strong>
-              <br/>
-            </span>
-            <span t-field="o.code"/>
+        </xpath>
+        <xpath expr="/t[1]/t[1]/div[1]/div[2]/div[1]" position="replace"/>
+        <xpath expr="/t/t/div/div[2]" position="after">
+          <div class="row">
+            <div class="col-3">
+              <span>
+                <strong>Código:</strong>
+                <br/>
+              </span>
+              <span t-field="doc.code"/>
+            </div>
+            <div class="col-3"/>
+            <div class="col-3"/>
+            <div class="col-3"/>
           </div>
-          <div class="col-3"/>
-          <div class="col-3"/>
-          <div class="col-3"/>
-        </div>
-      </xpath>
-    </t>
+        </xpath>
   </template>
 </odoo>
 
