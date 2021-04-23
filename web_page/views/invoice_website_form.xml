@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="invoice_website_form" name="Busca tu Pedido de venta">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure oe_empty">
+                <div class="container">
+                    <div class="col-md-12">
+                        <form action="/invoice/website/search/submit">
+
+                            <div class="row form-group form-field o_fake_not_editable">
+                                <div class="col-lg-3 col-md-4">
+                                    <label class="col-form-label o_fake_editable" for="sale_number">Número de pedido:</label>
+                                </div>
+
+                                <div class="col-lg-7 col-md-8">
+                                    <input type="text" class="form-control" name="sale_number" id="sale_number" required="true" />
+                                </div>
+                            </div>
+
+                            <div class="row form-group form-field o_fake_not_editable">
+                                <div class="col-lg-3 col-md-4">
+                                    <label class="col-form-label o_fake_editable" for="code">Código:</label>
+                                </div>
+
+                                <div class="col-lg-7 col-md-8">
+                                    <input type="text" class="form-control" name="code" id="code" required="true" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="offset-lg-3 offset-md-4 col-md-8 col-lg-7">
+                                    <button type="submit" class="btn btn-primary">Buscar</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+              </div>
+          </t>
+    </template>
+    <template id="wisp_sign_in_website_form_success" name="Customer Form Successfully Submitted">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure oe_empty">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="alert alert-success">
+                            Gracias por registrarte.S
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

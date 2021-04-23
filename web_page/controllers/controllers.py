@@ -1,20 +1,21 @@
 # -*- coding: utf-8 -*-
 from odoo import http
+from odoo.http import request
 
-# class MyModule(http.Controller):
-#     @http.route('/my_module/my_module/', auth='public')
-#     def index(self, **kw):
-#         return "Hello, world"
+class PartnerPortal(http.Controller):
+    @http.route(['/invoice/index_form'], type='http', auth="public", website=True)
+    def wisp_sign_in_form(self, **post):
+        return request.render("web_page.invoice_website_form", {})
 
-#     @http.route('/my_module/my_module/objects/', auth='public')
-#     def list(self, **kw):
-#         return http.request.render('my_module.listing', {
-#             'root': '/my_module/my_module',
-#             'objects': http.request.env['my_module.my_module'].search([]),
-#         })
-
-#     @http.route('/my_module/my_module/objects/<model("my_module.my_module"):obj>/', auth='public')
-#     def object(self, obj, **kw):
-#         return http.request.render('my_module.object', {
-#             'object': obj
-#         })
+    @http.route(['/invoice/website/search/submit'], type='http', auth="public", website=True)
+    def wisp_sign_in_form_submit(self, **post):
+        wisp_form = request.env['wisp.sign.in'].sudo().create({
+            'partner_name': post.get('partner_name'),
+            'email': post.get('email'),
+            'phone': post.get('phone')
+        })
+        vals = {
+            'wisp_form': wisp_form,
+        }
+        return request.render("wisp_sign_in.wisp_sign_in_website_form_success", vals)
+        
