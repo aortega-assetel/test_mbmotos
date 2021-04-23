@@ -24,5 +24,6 @@
     # always loaded
     'data': [
         'views/sale_order_report.xml',
+    ],
     
 }
