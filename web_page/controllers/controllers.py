@@ -51,5 +51,3 @@ class PartnerPortal(http.Controller):
         values['message'] = message
 
         return request.render('sale.sale_order_portal_template', values)
-
-        
