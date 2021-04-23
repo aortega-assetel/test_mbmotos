@@ -14,7 +14,7 @@ class SaleOrder(models.Model):
         while True:
             ran_number = random.randint(1000000000,9999999999)
             repetido = reg.env['sale.order'].search_count([['code','=',ran_number]])
-            if repetido = 0:
+            if repetido == 0:
                 vals['code'] = ran_number
                 break
                 
