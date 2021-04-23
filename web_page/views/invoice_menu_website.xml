@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+       <record id="invoice_website_menu" model="website.menu">
+        <field name="name">Facturación</field>
+        <field name="url">/invoice/index_form</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">22</field>
+       </record>
+    </data>
+</odoo>
