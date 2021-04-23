@@ -4,11 +4,11 @@ from odoo.http import request
 
 class PartnerPortal(http.Controller):
     @http.route(['/invoice/index_form'], type='http', auth="public", website=True)
-    def wisp_sign_in_form(self, **post):
+    def invoice_index(self, **post):
         return request.render("web_page.invoice_website_form", {})
 
     @http.route(['/invoice/website/search/submit'], type='http', auth="public", website=True)
-    def wisp_sign_in_form_submit(self, **post):
+    def invoice_search(self, **post):
 
         order_id = self.env['sale.order'].search([['name','=',post.get('sale_number')],['code','=',post.get('code')]]).id
 
@@ -42,6 +42,6 @@ class PartnerPortal(http.Controller):
 
         values = self._order_get_page_view_values(order_sudo, access_token, **kw)
         values['message'] = message
-        
+
         return request.render('sale.sale_order_portal_template', values)
         
