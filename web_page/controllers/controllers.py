@@ -10,8 +10,8 @@ class PartnerPortal(http.Controller):
     @http.route(['/invoice/website/search/submit'], type='http', auth="public", website=True)
     def invoice_search(self, **post):
 
-        order_id = self.env['sale.order'].search([['name','=',post.get('sale_number')],['code','=',post.get('code')]]).id
-
+        #order_id = self.env['sale.order'].search([['name','=',post.get('sale_number')],['code','=',post.get('code')]]).id
+        order_id = 8
         try:
             order_sudo = self._document_check_access('sale.order', order_id, access_token=access_token)
         except (AccessError, MissingError):
