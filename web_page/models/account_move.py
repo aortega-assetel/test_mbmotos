@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
+import logging
 
-from odoo import models, fields, api, _
-from odoo.exceptions import AccessError
+from odoo import models, api, fields
 
 class AccountMove(models.Model):
-    _name = 'account.move'
+    _inherit = 'account.move'
+
     solicitud_factura = fields.Many2one('solicitud.factura', string='Solicitud Factura')
 
 
