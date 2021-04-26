@@ -17,7 +17,7 @@ class SolicitudFactura(models.Model):
     @api.model
     def create(self, vals):
         result = super(SolicitudFactura, self).create(vals)
-        order_lines = self.sudo().env['sale.order'].search([('id', '=', result.pedido_id)])
+        order_lines = self.sudo().env['sale.order'].search([('id', '=', result.pedido_id.id)])
         for line in order_lines:
             move_lines = [
                         (0, 0, {
