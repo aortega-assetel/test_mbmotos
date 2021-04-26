@@ -14,12 +14,6 @@ class SolicitudFactura(models.Model):
     factura = fields.One2many('account.move',string='Factura')
 
 
-    @api.model
-    def create(self, vals):
-        result = super(SaleOrder, self).create(vals)
-        self.create_invoices()
-                
-
-        return result
+  
 
 
