@@ -11,9 +11,9 @@ class SolicitudFactura(models.Model):
     code = fields.Char("Código")
     pedido_id = fields.Many2one('sale.order',string='Pedido')
     customer_id = fields.Many2one('res.partner',string='Cliente')
-    factura = fields.One2many('account.move',string='Factura')
+    factura = fields.One2many('account.move','solicitud_factura', string='Factura')
 
 
-  
+
 
 
