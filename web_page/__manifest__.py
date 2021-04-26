@@ -26,6 +26,8 @@
         'views/sale_order_report.xml',
         'views/invoice_menu_website.xml',
         'views/invoice_website_form.xml',
+        'views/olicitud_factura_menu.xml',
+        'views/olicitud_factura.xml',
     ],
     
 }

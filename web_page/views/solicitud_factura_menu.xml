@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="get_solicitud_factura_view" model="ir.actions.act_window">
+        <field name="name">Solicitudes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">solicitud.factura</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crea nueva solicitud
+            </p>
+        </field>
+    </record>
+
+    <record id="web_page.solicitud_factura_app" model="ir.ui.menu">
+        <field name="action" eval="False"/>
+        <field name="active" eval="True"/>
+        <field name="groups_id" eval="[(6, 0, [])]"/>
+        <field name="name">Solicitudes de facturas</field>
+        <field name="parent_id" eval="False"/>
+        <field name="sequence">7</field>
+        <field name="web_icon">fa fa-file-text,#FFFFFF,#751313</field>
+    </record>
+
+    <record id="web_page.solicitud_factura_menu" model="ir.ui.menu">
+        <field name="action" ref="web_page.get_solicitud_factura_view"/>
+        <field name="active" eval="True"/>
+        <field name="groups_id" eval="[(6, 0, [])]"/>
+        <field name="name">Alumnos</field>
+        <field name="parent_id" ref="web_page.solicitud_factura_app"/>
+        <field name="sequence">10</field>
+        <field name="web_icon" eval="False"/>
+    </record>
+</odoo>
