@@ -38,18 +38,6 @@
                   <field name="customer_id"/>
                 </group>
               </group>
-              <notebook>
-                <page string="Facturas">  
-                  <group>
-                    <field name="factura" nolabel="1">
-                      <tree editable="bottom">
-                        <field name="name" readonly="1"/>
-                      </tree>
-                    </field>
-                  </group>
-                </page>
-              </notebook>
-
           </sheet>
       </form>
     </field> 
