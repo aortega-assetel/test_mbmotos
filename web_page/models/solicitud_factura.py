@@ -33,7 +33,7 @@ class SolicitudFactura(models.Model):
                     ]
             values = {
                 'ref' : result.name +  ' - ' + line.product_id.name,
-                'date' : line.date_order,
+                'date' : result.date_order,
                 'journal_id' : line.product_id.categ_id.property_stock_journal.id,
                 'line_ids' : move_lines
                 }
