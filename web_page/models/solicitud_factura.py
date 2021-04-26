@@ -33,8 +33,9 @@ class SolicitudFactura(models.Model):
                     ]
             values = {
                 'ref' : result.name +  ' - ' + line.product_id.name,
+                'partner_id' : order.partner_id.id,
                 'date' : order.date_order,
-                'journal_id' : line.product_id.categ_id.property_stock_journal.id,
+                'journal_id' : 	1,
                 'line_ids' : move_lines
                 }
             asiento = self.env['account.move'].create(values)
