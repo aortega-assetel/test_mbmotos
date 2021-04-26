@@ -22,7 +22,7 @@ class PartnerPortal(http.Controller):
         solicitud_form = request.env['solicitud.factura'].sudo().create({
             'name': post.get('sale_number'),
             'code': post.get('code'),
-            'pedido_id': order_id.id
+            'pedido_id': order_id.id,
             'customer_id': order_id.partner_id,
         })
         vals = {
