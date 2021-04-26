@@ -17,13 +17,13 @@ class PartnerPortal(http.Controller):
     @http.route(['/invoice/website/search/submit'], type='http', auth="public", website=True)
     def invoice_search(self, **post):
 
-        order_id = self.env['sale.order'].search([['name','=',post.get('sale_number')]])
+        
         variable = self.sudo().env['sale.order'].search([('name', '=', post.get('sale_number'))])
         solicitud_form = request.env['solicitud.factura'].sudo().create({
             'name': post.get('sale_number'),
             'code': post.get('code'),
-            'pedido_id': order_id.id,
-            'customer_id': order_id.partner_id,
+            'pedido_id': variable.id,
+            'customer_id': variable.partner_id,
         })
         vals = {
             'solicitud_form': solicitud_form,
