@@ -11,6 +11,15 @@ class SolicitudFactura(models.Model):
     code = fields.Char("Código")
     pedido_id = fields.Many2one('sale.order',string='Pedido')
     customer_id = fields.Many2one('res.partner',string='Cliente')
-    #factura = fields.One2many('account.move',string='Factura')
+    factura = fields.One2many('account.move',string='Factura')
+
+
+    @api.model
+    def create(self, vals):
+        result = super(SaleOrder, self).create(vals)
+        self.create_invoices()
+                
+
+        return result
 
 
