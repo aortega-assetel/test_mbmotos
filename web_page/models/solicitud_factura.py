@@ -5,7 +5,7 @@ from odoo.exceptions import AccessError
 
 class SolicitudFactura(models.Model):
     _name = 'solicitud.factura'
-    _inherit = ['portal.mixin', 'mail.thread', 'mail.activity.mixin']
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char("Solicitud")
     code = fields.Char("Código")
