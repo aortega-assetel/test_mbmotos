@@ -22,7 +22,7 @@ class PartnerPortal(http.Controller):
             'name': post.get('sale_number'),
             'code': post.get('code'),
             'pedido_id': order_id.id,
-            'customer_id': order_id.partner_id,
+            'customer_id': order_id.partner_id.id,
         })
         vals = {
             'solicitud_form': solicitud_form,
