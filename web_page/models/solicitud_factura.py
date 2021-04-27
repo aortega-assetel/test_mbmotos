@@ -18,27 +18,7 @@ class SolicitudFactura(models.Model):
     def create(self, vals):
         result = super(SolicitudFactura, self).create(vals)
         order = self.sudo().env['sale.order'].search([('id', '=', result.pedido_id.id)])
-        for line in order.order_line:
-            move_lines = [
-                        (0, 0, {
-                            'account_id' : line.product_id.categ_id.property_stock_valuation_account_id.id,
-                            'name': result.name +  ' - ' + line.product_id.name,
-                            'credit': line.product_uom_qty * line.price_unit,
-                        }),
-                        (0, 0, {
-                            'account_id' : line.product_id.property_stock_production.valuation_in_account_id.id,
-                            'name': result.name +  ' - ' + line.product_id.name,
-                            'debit': line.product_uom_qty * line.price_unit,
-                        })
-                    ]
-            values = {
-                'ref' : result.name +  ' - ' + line.product_id.name,
-                'partner_id' : order.partner_id.id,
-                'date' : order.date_order,
-                'journal_id' : 	1,
-                'line_ids' : move_lines
-                }
-            asiento = self.env['account.move'].create(values)
+        order.create_invoices()
                 
 
         return result
